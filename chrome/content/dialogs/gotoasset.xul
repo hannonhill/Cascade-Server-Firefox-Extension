@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<dialog id="gotoasset" title="Go to Asset..."
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"      
+  style="width: 30em;"
+  buttons="accept,cancel"
+  ondialogaccept="return doOK();">
+
+  <grid>
+  <columns><column/><column/></columns>
+  <rows>
+  <row align="center">
+    <label value="Destination asset"/>
+    <textbox id="path"/>
+  </row>
+
+  <row align="center">
+    <label value="Asset type"/>
+    <menulist id="type">
+      <menupopup>
+	      <menuitem label="Page" value="page"/>
+	      <menuitem label="Folder" value="folder"/>
+	      <menuitem label="File" value="file"/>
+		  <menuitem label="Block" value="block"/>
+		  <menuitem label="Stylesheet" value="stylesheet"/>
+		  <menuitem label="External Link" value="symlink"/>
+		  <menuitem label="Template" value="template"/>
+		  <menuseparator/>
+		  <menuitem label="Asset Factory" value="assetfactory"/>
+	      <menuitem label="Configuration Set" value="configurationset"/>
+	      <menuitem label="Data Definition" value="structureddatadefinition"/>
+	      <menuitem label="Metadata Set" value="metadataset"/>
+	      <menuitem label="Publish Set" value="publishset"/>	      
+	      <menuitem label="Target" value="target"/>
+	      <menuitem label="Destination" value="desination"/>
+	      <menuitem label="Transport" value="transport"/>
+		  <menuitem label="Workflow Definition" value="workflowdefinition"/>	      
+		  <menuseparator/>
+		  <menuitem label="Asset Factory Container" value="assetfactorycontainer"/>
+		  <menuitem label="Configuration Set Container" value="configurationsetcontainer"/>
+		  <menuitem label="Data Defintion Container" value="structureddatadefinitioncontainer"/>
+		  <menuitem label="Metadata Set Container" value="metadatasetcontainer"/>
+		  <menuitem label="Publish Set Container" value="publishsetcontainer"/>
+		  <menuitem label="Workflow Definition Container" value="workflowdefinitioncontainer"/>
+      </menupopup>
+   </menulist>
+  </row>
+  </rows>
+  </grid>
+  
+  <script type="application/x-javascript" src="chrome://cascade/content/functions.js"></script>
+  <script type="application/x-javascript" src="chrome://cascade/content/AssetOperations.js"></script>
+  <script>
+  
+  function doOK() {
+  
+    window.arguments[0].out = {path:document.getElementById("path").value,
+    						   type:document.getElementById("type").value};
+    
+    return true;
+ }
+ </script>
+  
+</dialog>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://cascade/skin/styles.css" type="text/css"?>
+<overlay id="cascadeOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<!-- our script-->
+	<script type="application/x-javascript" src="chrome://cascade/content/functions.js"></script>	
+	<script type="application/x-javascript" src="chrome://cascade/content/BulkChange.js"></script>	
+	<script type="application/x-javascript" src="chrome://cascade/content/Workflows.js"></script>	
+	<script type="application/x-javascript" src="chrome://cascade/content/AssetOperations.js"></script>
+	<script type="application/x-javascript" src="chrome://cascade/content/Publish.js"></script>
+	
+	<popup id="contentAreaContextMenu">
+		<menuseparator id="cascade-start" insertafter="context-properties"/>
+		<menuitem image="chrome://cascade/skin/logo.png" class="menuitem-iconic" label="Cascade Server" id="cascade-logo"/>
+		
+		<!-- Asset menu items -->
+		<menuitem image="chrome://cascade/skin/view.png" class="menuitem-iconic" id="cascadeView" label="View" oncommand="viewAsset()"/>
+		<menuitem image="chrome://cascade/skin/edit.png" class="menuitem-iconic" id="cascadeEdit" label="Edit" oncommand="editAsset()"/>
+		<menuitem image="chrome://cascade/skin/copy.png" class="menuitem-iconic" id="cascadeCopy" label="Copy" oncommand="copyAsset()"/>
+		<menuitem image="chrome://cascade/skin/delete.gif" class="menuitem-iconic" id="cascadeDelete" label="Delete" oncommand="deleteAsset()"/>
+		<menuitem image="chrome://cascade/skin/publish.png" class="menuitem-iconic" id="cascadePublish" label="Publish" oncommand="publishAsset()"/>
+		
+		<menuseparator id="goToAssetBar"/>
+		<menuitem image="chrome://cascade/skin/view.png" class="menuitem-iconic" id="cascadeGoTo" label="Go To Asset..." oncommand="goToAssetDialog()"/>
+		
+		<!-- the New Asset menu -->
+		<menu id="newMenu" label="New Asset">
+			<menupopup>
+				<menuitem image="chrome://cascade/skin/folder.png" class="menuitem-iconic" id="newFolder" label="Folder" oncommand="newFolder()"/>
+				<menuitem image="chrome://cascade/skin/page.png" class="menuitem-iconic" id="newPage" label="Page" oncommand="newPage()"/>
+				<menuitem image="chrome://cascade/skin/file.gif" class="menuitem-iconic" id="newFile" label="File" oncommand="newFile()"/>
+				<menuitem image="chrome://cascade/skin/stylesheet.png" class="menuitem-iconic" id="newStylesheet" label="Stylesheet" oncommand="newStylesheet()"/>
+				<menuitem image="chrome://cascade/skin/block.png" class="menuitem-iconic" id="newBlock" label="Block" oncommand="newBlock()"/>
+				<menuitem image="chrome://cascade/skin/template.gif" class="menuitem-iconic" id="newTemplate" label="Template" oncommand="newTemplate()"/>
+				<menuitem image="chrome://cascade/skin/symlink.png" class="menuitem-iconic" id="newSymlink" label="Symlink" oncommand="newSymlink()"/>
+			</menupopup>
+		</menu>			
+		
+		<!-- the generic testing button 
+		<menuitem id="cascadeDebug" label="Debug Button" oncommand="testThing()"/>-->
+		
+		<!-- Bulk change menu -->
+		<menu id="cascadeBulkChange" label="Bulk Change">
+			<menupopup>
+			    <menuitem id="selectnone" label="Select None" oncommand="bulkChangeSelect(false)"/>
+			    <menuitem id="selectall" image="chrome://cascade/skin/tick.png" class="menuitem-iconic"  label="Select All" oncommand="bulkChangeSelect(true)"/>
+				<menuitem id="invert" image="chrome://cascade/skin/invert.png" class="menuitem-iconic"  label="Invert Selection" oncommand="bulkChangeInvertSelect()"/>
+				<menuitem image="chrome://cascade/skin/regex.png" class="menuitem-iconic" id="byRegex" label="Select by Regular Expression" oncommand="bulkChangeByRegex()"/>
+   			    <menuseparator/>
+   			    <menuitem image="chrome://cascade/skin/folder.png" class="menuitem-iconic" id="onlyFolders" label="Folder" oncommand="bulkChangeByType('folder')"/>
+				<menuitem image="chrome://cascade/skin/page.png" class="menuitem-iconic" id="onlyPages" label="Page" oncommand="bulkChangeByType('page')"/>
+				<menuitem image="chrome://cascade/skin/file.gif" class="menuitem-iconic" id="onlyFiles" label="File" oncommand="bulkChangeByType('file')"/>
+				<menuitem image="chrome://cascade/skin/stylesheet.png" class="menuitem-iconic" id="onlyStylesheets" label="Stylesheet" oncommand="bulkChangeByType('stylesheet')"/>
+				<menuitem image="chrome://cascade/skin/block.png" class="menuitem-iconic" id="onlyBlocks" label="Block" oncommand="bulkChangeByType('block')"/>
+				<menuitem image="chrome://cascade/skin/template.gif" class="menuitem-iconic" id="onlyTemplats" label="Template" oncommand="bulkChangeByType('template')"/>
+				<menuitem image="chrome://cascade/skin/symlink.png" class="menuitem-iconic" id="onlySymlinks" label="Symlink" oncommand="bulkChangeByType('symlink')"/>
+			</menupopup>
+		</menu>		
+		
+		<!-- the Delete All Workflows and Delete All Publish Jobs -->		
+		<menuitem image="chrome://cascade/skin/warning.png" class="menuitem-iconic" id="deletePublishJobs" label="Delete All Publish Jobs" accesskey="P" oncommand="deletePublishJobs();"/>		
+		<menuitem image="chrome://cascade/skin/warning.png" class="menuitem-iconic" id="deleteWorkflows" label="Delete All Workflows" accesskey="D" insertafter="cascade-start" oncommand="deleteWorkflows();"/>		
+	</popup>	
+	
+	<commandset id="mainCommandSet">
+        <command id="cmd_CascadeGoTo" oncommand="goToAssetDialog()"/>
+    </commandset>
+    
+	<keyset id="mainKeyset">
+        <key id="key_cascadegoto" keycode="VK_F4"
+                command="cmd_CascadeGoTo"/>
+    </keyset>
+</overlay>

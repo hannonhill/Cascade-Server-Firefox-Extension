@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<dialog id="enterlogin" title="Please enter your login..."
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"      
+  style="width: 30em;"
+  buttons="accept,cancel"
+  ondialogaccept="return doOK();">
+
+  <grid>
+  <columns><column/><column/></columns>
+	  <rows>
+		  <row align="center">
+		    <label value="Username"/>
+		    <textbox id="username"/>
+		  </row>
+
+		  <row align="center">
+		    <label value="Password"/>
+		    <textbox id="password"/>
+		  </row>  
+	  </rows>
+  </grid>
+  
+  <script type="application/x-javascript" src="chrome://cascade/content/functions.js"></script>
+  <script type="application/x-javascript" src="chrome://cascade/content/AssetOperations.js"></script>
+  <script>
+  
+  function doOK() {
+  
+    window.arguments[0].userpass = {username:document.getElementById("username").value,
+									password:document.getElementById("password").value};
+    
+    return true;
+ }
+ </script>
+  
+</dialog>

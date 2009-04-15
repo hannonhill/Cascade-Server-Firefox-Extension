@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$81TpM3"
+                   em:version="1.3.7">
+    <em:targetApplication RDF:resource="rdf:#$b1TpM3"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:extension:syl.turner@hannonhill"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBANBLHrqu5Dm4zdp8vZ5fTyPMQM6L7PgxOxVjrtpLiDqMtm1piHrGV4uknzd2CXfjU/MNC8Y0Y+nExifjFXiwzshT7LbAV78yvXGvfgV0t7S7EYNoBf/kzECvLiyNLBVQEkPvRC0/SZzaxnT3vRxp//Rbi3OArPrOFB7OQk2DFIAN">
+    <em:updates RDF:resource="rdf:#$71TpM3"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="rdf:#$71TpM3">
+    <RDF:li RDF:resource="rdf:#$81TpM3"/>
+
+    <RDF:li RDF:resource="rdf:#$g1TpM3"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="rdf:#$j1TpM3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="2.0"
+                   em:maxVersion="3.0.*"
+                   em:updateLink="http://www.hannonhill.com/downloads/cascade.xpi"
+                   em:updateHash="sha1:d4e2f6fd7659a94c14409b94f9e3bed69c980cd5" />
+  <RDF:Description RDF:about="rdf:#$b1TpM3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="2.0"
+                   em:maxVersion="3.0.*"
+                   em:updateLink="http://www.hannonhill.com/downloads/cascade.xpi" />
+  <RDF:Description RDF:about="rdf:#$g1TpM3"
+                   em:version="1.3.7">
+    <em:targetApplication RDF:resource="rdf:#$j1TpM3"/>
+  </RDF:Description>
+</RDF:RDF>

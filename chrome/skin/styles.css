@@ -1,0 +1,8 @@
+/*the css for the toolbar
+by syl turner*/
+
+#newMenu {
+	background-image: url(chrome://cascade/skin/assetfactory.png);
+	background-repeat: no-repeat;	
+	padding-left: 4px;
+}

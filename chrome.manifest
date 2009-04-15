@@ -1,0 +1,3 @@
+content   cascade   chrome/content/
+skin	cascade classic/1.0 chrome/skin/
+overlay chrome://browser/content/browser.xul chrome://cascade/content/cascadeOverlay.xul
