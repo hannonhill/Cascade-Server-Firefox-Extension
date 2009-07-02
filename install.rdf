@@ -4,18 +4,16 @@
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="syl.turner@hannonhill"
-                   em:version="1.3.8"
+                   em:version="1.3.9"
                    em:type="2"
                    em:name="Cascade Server Firefox Extension"
                    em:description="This extension adds features and options when using Cascade Server."
                    em:creator="Hannon Hill"
-                   em:homepageURL="http://www.hannonhill.com/"
-                   em:updateURL="http://www.hannonhill.com/downloads/update.rdf"
-                   em:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzpzZYkkBcMBTVwEeWdlP7IIjBuWeay6XCVb9y3aEQ0bjScC212YlQAmz2wo1JugCxf+L713XJNtI0hp64gyimWy1fTWM7k2KlKpGFPyLvvTgIXYLYz3dtiiz2m3A2/+2tiyTtMNGxhkRxXdU2lPkLz+X2SZdFSR0M2kaat58gYQIDAQAB">
+                   em:homepageURL="http://www.hannonhill.com/">
     <em:targetApplication RDF:resource="rdf:#$Z0TpM3"/>
   </RDF:Description>
   <RDF:Description RDF:about="rdf:#$Z0TpM3"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="2.0"
-                   em:maxVersion="3.0.*" />
+                   em:maxVersion="3.5.*" />
 </RDF:RDF>
