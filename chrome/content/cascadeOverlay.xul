@@ -15,6 +15,7 @@
 		<!-- Asset menu items -->
 		<menuitem image="chrome://cascade/skin/view.png" class="menuitem-iconic" id="cascadeView" label="View" oncommand="viewAsset()"/>
 		<menuitem image="chrome://cascade/skin/edit.png" class="menuitem-iconic" id="cascadeEdit" label="Edit" oncommand="editAsset()"/>
+		<menuitem image="chrome://cascade/skin/move.png" class="menuitem-iconic" id="cascadeMove" label="Move/Rename" oncommand="moveAsset()"/>
 		<menuitem image="chrome://cascade/skin/copy.png" class="menuitem-iconic" id="cascadeCopy" label="Copy" oncommand="copyAsset()"/>
 		<menuitem image="chrome://cascade/skin/delete.gif" class="menuitem-iconic" id="cascadeDelete" label="Delete" oncommand="deleteAsset()"/>
 		<menuitem image="chrome://cascade/skin/publish.png" class="menuitem-iconic" id="cascadePublish" label="Publish" oncommand="publishAsset()"/>
@@ -22,19 +23,19 @@
 		<menuseparator id="goToAssetBar"/>
 		<menuitem image="chrome://cascade/skin/view.png" class="menuitem-iconic" id="cascadeGoTo" label="Go To Asset..." oncommand="goToAssetDialog()"/>
 		
-		<!-- the New Asset menu -->
+		<!-- REMOVING FOR NOW the New Asset menu 
 		<menu id="newMenu" label="New Asset">
 			<menupopup>
 				<menuitem image="chrome://cascade/skin/folder.png" class="menuitem-iconic" id="newFolder" label="Folder" oncommand="newFolder()"/>
 				<menuitem image="chrome://cascade/skin/page.png" class="menuitem-iconic" id="newPage" label="Page" oncommand="newPage()"/>
 				<menuitem image="chrome://cascade/skin/file.gif" class="menuitem-iconic" id="newFile" label="File" oncommand="newFile()"/>
-				<menuitem image="chrome://cascade/skin/stylesheet.png" class="menuitem-iconic" id="newStylesheet" label="Stylesheet" oncommand="newStylesheet()"/>
+				<menuitem image="chrome://cascade/skin/stylesheet.png" class="menuitem-iconic" id="newStylesheet" label="Format" oncommand="newStylesheet()"/>
 				<menuitem image="chrome://cascade/skin/block.png" class="menuitem-iconic" id="newBlock" label="Block" oncommand="newBlock()"/>
 				<menuitem image="chrome://cascade/skin/template.gif" class="menuitem-iconic" id="newTemplate" label="Template" oncommand="newTemplate()"/>
-				<menuitem image="chrome://cascade/skin/symlink.png" class="menuitem-iconic" id="newSymlink" label="Symlink" oncommand="newSymlink()"/>
+				<menuitem image="chrome://cascade/skin/symlink.png" class="menuitem-iconic" id="newSymlink" label="External Link" oncommand="newSymlink()"/>
 			</menupopup>
 		</menu>			
-		
+		-->
 		<!-- the generic testing button 
 		<menuitem id="cascadeDebug" label="Debug Button" oncommand="testThing()"/>-->
 		

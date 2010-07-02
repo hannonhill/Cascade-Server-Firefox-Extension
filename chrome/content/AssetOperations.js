@@ -1,42 +1,3 @@
-
-/************************
-The right-click "New Assets" menu functions
-*************************/
-function newFolder()
-{
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=f18f28f0c0a8080800766b4203d6cac7&assetFactoryType=folder&type=folder";
-}
-
-function newPage()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=5bf6b7940a00018200cb94b78e72ce17&assetFactoryType=page&type=page";
-}
-
-function newFile()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=f1ec9717c0a8080801cbf6bb05239a74&assetFactoryType=file&type=file";
-}
-
-function newStylesheet()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=04ed8dd4c0a8000300c80825a0478b71&assetFactoryType=stylesheet&type=stylesheet";
-}
-
-function newBlock()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=6e329f5dc0a8015201650ceab3a66c55&assetFactoryType=block&type=block";
-}
-
-function newTemplate()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=04ed002bc0a8000300c80825ded9405f&assetFactoryType=template&type=template";
-}
-
-function newSymlink()
-{	
-	window._content.location = cmsURL+"/cms/entity/start.act?assetFactoryId=f2003157c0a808080190690ee6802c81&assetFactoryType=symlink&type=symlink";
-}
-
 /*****************
 View asset
 ******************/
@@ -51,6 +12,14 @@ Edit asset
 function editAsset()
 {	
 	window._content.location = cmsURL+"/cms/entity/edit.act?type="+g_type+"&id="+g_id;
+}
+
+/*****************
+Move asset
+******************/
+function moveAsset()
+{	
+	window._content.location = cmsURL+"/cms/entity/move.act?type="+g_type+"&id="+g_id;
 }
 
 /*****************
@@ -136,6 +105,16 @@ function get_id_from_path(op) {
     var password = login['password'].replace(/&/g, '&amp;');
     password = password.replace(/</g, '&lt;');
     password = password.replace(/>/g, '&gt;');
+    
+    var fullPath = op["path"];
+    var siteName = "";
+    var path = fullPath;
+    if (fullPath.indexOf(":") != -1)
+	{	
+    	var idx = fullPath.indexOf(":");
+    	siteName = fullPath.substring(0, idx);
+    	path = fullPath.substring(idx+1);    	
+	}    
 
     var message = '<?xml version="1.0" encoding="UTF-8"?>'
      + '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/'
@@ -148,7 +127,10 @@ function get_id_from_path(op) {
      + '<username>' + username + '</username>'
      + '</authentication>'
      + '<identifier>'
-     + '<path>' + op["path"] + '</path>'
+     	+ '<path>'
+     		+ '<path>' + path + '</path>'
+     		+ '<siteName>' + siteName + '</siteName>'
+     	+ '</path>'
      + '<type>' + op["type"] + '</type>'
      + '</identifier>'
      + '</read>'
@@ -165,9 +147,7 @@ function get_id_from_path(op) {
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
             var regex = new RegExp(/<id>(.*?)<\/id>/);
-            var response =
-            request.responseText.replace(/<children>(.*?)<\/children>/, "");
-
+            var response = request.responseText.replace(/<children>(.*?)<\/children>/, "");
             if (response.match(regex)) { // found id
 
                 /* extract id */

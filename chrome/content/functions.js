@@ -6,6 +6,7 @@ window.addEventListener("submit",hh_windowSubmit,true);
 g_id = 0;
 g_type = 0;
 cmsURL = "";
+is67Plus = false;
 
 logins = new Array();
 
@@ -31,12 +32,14 @@ function hh_windowLoad()
 	document.getElementById("deletePublishJobs").hidden = true;
 	document.getElementById("cascadeBulkChange").hidden = true;
 	document.getElementById("goToAssetBar").hidden = true;
-	document.getElementById("newMenu").hidden = true;
+	//document.getElementById("newMenu").hidden = true;
 	document.getElementById("cascade-start").hidden = true;
 	document.getElementById("cascade-logo").hidden = true;
 
 	//grab the cms url!
 	cmsURL = window._content.location.protocol + "//" + window._content.location.host;
+	
+	
 	
 
 }
@@ -48,6 +51,7 @@ function hh_menuPopup(menuEvent)
 	document.getElementById("cascadeGoTo").hidden = true;
 	document.getElementById("cascadeView").hidden = true;
 	document.getElementById("cascadeEdit").hidden = true;
+	document.getElementById("cascadeMove").hidden = true;
 	document.getElementById("cascadeCopy").hidden = true;
 	document.getElementById("cascadeDelete").hidden = true;
 	document.getElementById("cascadePublish").hidden = true;
@@ -55,7 +59,7 @@ function hh_menuPopup(menuEvent)
 	document.getElementById("deletePublishJobs").hidden = true;
 	document.getElementById("cascadeBulkChange").hidden = true;
 	document.getElementById("goToAssetBar").hidden = true;
-	document.getElementById("newMenu").hidden = true;
+	//document.getElementById("newMenu").hidden = true;
 	document.getElementById("cascade-start").hidden = true;
 	document.getElementById("cascade-logo").hidden = true;
 	
@@ -68,7 +72,7 @@ function hh_menuPopup(menuEvent)
 		
 		document.getElementById("cascade-start").hidden = false; //show the menu separator
 		document.getElementById("cascade-logo").hidden = false; //show our sweet logo
-		document.getElementById("newMenu").hidden = false;	//show the New Assets menu
+		//document.getElementById("newMenu").hidden = false;	//show the New Assets menu
 		document.getElementById("cascadeGoTo").hidden = false;	//show the New Assets menu
 		
 		//if you right click on the workflows screen, then show the "Delete All Workflows" button
@@ -127,8 +131,18 @@ function hh_menuPopup(menuEvent)
 				g_type = link_info["type"];
 				
 				//show Edit, Copy and Delete
-	            document.getElementById("cascadeView").hidden = false;
-				document.getElementById("cascadeEdit").hidden = false;			
+	            document.getElementById("cascadeView").hidden = false;	            
+				document.getElementById("cascadeEdit").hidden = false;
+				//if this is 6.7+, show move/rename, hide edit if it's a container
+				if(window._content.document.getElementById("utility-nav").getElementsByTagName("ul")[0].getElementsByTagName("li").length == 5)
+				{
+					document.getElementById("cascadeMove").hidden = false;
+					// hide edit if it's a container, but there is edit for asset factory containers
+					if(g_type.indexOf("container") != -1 && g_type != "assetfactorycontainer")
+					{
+						document.getElementById("cascadeEdit").hidden = true;
+					}
+				}
 				document.getElementById("cascadeCopy").hidden = false;		
 				document.getElementById("cascadeDelete").hidden = false;
 				document.getElementById("goToAssetBar").hidden = false;

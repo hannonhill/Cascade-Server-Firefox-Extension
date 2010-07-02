@@ -12,9 +12,9 @@
   <columns><column/><column/></columns>
   <rows>
   <row align="center">
-    <label value="Destination asset"/>
-    <textbox id="path"/>
-  </row>
+    <label value="Destination asset"/>    
+    <textbox id="path"/>    
+  </row> 
 
   <row align="center">
     <label value="Asset type"/>
@@ -24,29 +24,38 @@
 	      <menuitem label="Folder" value="folder"/>
 	      <menuitem label="File" value="file"/>
 		  <menuitem label="Block" value="block"/>
-		  <menuitem label="Stylesheet" value="stylesheet"/>
+		  <menuitem label="Format" value="format"/>
 		  <menuitem label="External Link" value="symlink"/>
 		  <menuitem label="Template" value="template"/>
 		  <menuseparator/>
 		  <menuitem label="Asset Factory" value="assetfactory"/>
 	      <menuitem label="Configuration Set" value="configurationset"/>
-	      <menuitem label="Data Definition" value="structureddatadefinition"/>
+	      <menuitem label="Content Type" value="contenttype"/>
+	      <menuitem label="Data Definition" value="datadefinition"/>
+	      <menuitem label="Workflow Definition" value="workflowdefinition"/>
 	      <menuitem label="Metadata Set" value="metadataset"/>
 	      <menuitem label="Publish Set" value="publishset"/>	      
+	      <menuitem label="Wordpress Connector" value="wordpressconnector"/>
+	      <menuitem label="Twitter Connector" value="twitterconnector"/>
 	      <menuitem label="Target" value="target"/>
-	      <menuitem label="Destination" value="desination"/>
-	      <menuitem label="Transport" value="transport"/>
-		  <menuitem label="Workflow Definition" value="workflowdefinition"/>	      
+	      <menuitem label="Destination" value="destination"/>
+	      <menuitem label="Transport" value="transport"/>		  	      
 		  <menuseparator/>
 		  <menuitem label="Asset Factory Container" value="assetfactorycontainer"/>
 		  <menuitem label="Configuration Set Container" value="configurationsetcontainer"/>
-		  <menuitem label="Data Defintion Container" value="structureddatadefinitioncontainer"/>
+		  <menuitem label="Content Type Container" value="contenttypecontainer"/>
+		  <menuitem label="Data Defintion Container" value="datadefinitioncontainer"/>
+		  <menuitem label="Workflow Definition Container" value="workflowdefinitioncontainer"/>
 		  <menuitem label="Metadata Set Container" value="metadatasetcontainer"/>
 		  <menuitem label="Publish Set Container" value="publishsetcontainer"/>
-		  <menuitem label="Workflow Definition Container" value="workflowdefinitioncontainer"/>
+		  <menuitem label="Connector Container" value="connectorcontainer"/>
+		  <menuitem label="Destination Container" value="destinationcontainer"/>
+		  <menuitem label="Transport Container" value="transportcontainer"/>		  
       </menupopup>
    </menulist>
   </row>
+  <description>For Sites, use sitename:/path/to/asset format</description>  
+  <description>For Global, /path/to/asset format</description>
   </rows>
   </grid>
   
