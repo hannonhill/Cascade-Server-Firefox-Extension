@@ -178,7 +178,9 @@ function hh_windowSubmit(form) {
 function get_link_info(link) {
     var to_ret = new Array();
     to_ret["asset"] = false;
-
+    if (link.nodeName.toLowerCase() == 'span' && link.className.indexOf('highlight') != -1) {
+        link = link.parentNode;
+    }
         var regex1 = new RegExp(/id=(.*?)(&|$|')/);
         var regex2 = new RegExp(/type=(.*?)(&|$|')/);
 
