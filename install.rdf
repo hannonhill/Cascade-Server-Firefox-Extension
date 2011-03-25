@@ -4,7 +4,7 @@
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="syl.turner@hannonhill"
-                   em:version="1.4.1"
+                   em:version="1.4.2"
                    em:type="2"
                    em:name="Cascade Server Firefox Extension"
                    em:description="This extension adds features and options when using Cascade Server."
@@ -15,5 +15,5 @@
   <RDF:Description RDF:about="rdf:#$Z0TpM3"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="2.0"
-                   em:maxVersion="4.0b8pre" />
+                   em:maxVersion="4.0.*" />
 </RDF:RDF>
